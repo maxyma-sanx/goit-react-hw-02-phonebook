@@ -4,7 +4,7 @@ import { App } from 'components/App';
 
 import { nanoid } from 'nanoid';
 
-import data from './components/data/contacts';
+import data from './data/contacts';
 
 const contacts = data.map(contact => {
   contact.id = nanoid();

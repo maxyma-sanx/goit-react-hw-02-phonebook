@@ -1,14 +1,22 @@
-import { List } from './ContactList.styled';
+import { List, ListItem } from './ContactList.styled';
 
-export const ContactList = ({ contacts }) => {
+export const ContactList = ({ contacts, onRemove }) => {
   return (
     <List>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
+        <ListItem key={id}>
           <p>
             {name}: {number}
           </p>
-        </li>
+          <button
+            type="button"
+            onClick={() => {
+              onRemove(id);
+            }}
+          >
+            Delete
+          </button>
+        </ListItem>
       ))}
     </List>
   );

@@ -1,8 +1,17 @@
-import { Form, Label, Input } from './ContactForm.styled';
+import { Form, Label, Input, Button } from './ContactForm.styled';
 
-export const ContactForm = ({ add }) => {
+export const ContactForm = ({ onSubmit }) => {
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    onSubmit(
+      e.currentTarget.elements.name.value,
+      e.currentTarget.elements.number.value
+    );
+  };
+
   return (
-    <Form onSubmit={add}>
+    <Form onSubmit={handleSubmit}>
       <Label>
         Name
         <Input
@@ -13,7 +22,18 @@ export const ContactForm = ({ add }) => {
           required
         ></Input>
       </Label>
-      <button type="submit">Add contact</button>
+
+      <Label>
+        Number
+        <Input
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+        ></Input>
+      </Label>
+      <Button>Add contact</Button>
     </Form>
   );
 };

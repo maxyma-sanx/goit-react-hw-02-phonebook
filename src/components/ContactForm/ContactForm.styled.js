@@ -17,3 +17,8 @@ export const Label = styled.label`
 export const Input = styled.input`
   max-width: 200px; ;
 `;
+
+export const Button = styled.button.attrs({ type: 'submit' })`
+  padding: 8px;
+  cursor: pointer;
+`;
