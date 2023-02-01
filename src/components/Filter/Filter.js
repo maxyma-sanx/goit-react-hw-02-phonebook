@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { FilterContainer, FilterLabel, FilterInput } from './Filter.styled';
 
 export const Filter = ({ value, onChange }) => {
@@ -12,4 +14,9 @@ export const Filter = ({ value, onChange }) => {
       <FilterLabel>Find contacts by name</FilterLabel>
     </FilterContainer>
   );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

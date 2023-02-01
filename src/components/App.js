@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './GlobalStyle/Layout/Layout.styled';
@@ -14,6 +15,15 @@ import { Social } from './Social';
 export class App extends Component {
   static defaultProps = {
     initialContacts: [],
+  };
+
+  static propTypes = {
+    initialContacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ).isRequired,
   };
 
   state = {

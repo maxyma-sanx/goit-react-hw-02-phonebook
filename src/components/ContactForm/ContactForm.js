@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { AiOutlineUserAdd } from 'react-icons/ai';
 
 import {
@@ -54,4 +56,8 @@ export const ContactForm = ({ onSubmit }) => {
       </Button>
     </Form>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
