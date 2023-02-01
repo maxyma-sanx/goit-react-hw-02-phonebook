@@ -1,10 +1,20 @@
-import { Title } from './Section.styled';
+import {
+  PhonebookSection,
+  PhonebookContainer,
+  TitleContainer,
+  Title,
+} from './Section.styled';
 
-export const Section = ({ title, children }) => {
+export const Section = ({ title, children, headerContent }) => {
   return (
-    <section>
-      <Title>{title}</Title>
-      {children}
-    </section>
+    <PhonebookSection>
+      <PhonebookContainer>
+        <TitleContainer>
+          <Title>{title}</Title>
+          {headerContent}
+        </TitleContainer>
+        {children}
+      </PhonebookContainer>
+    </PhonebookSection>
   );
 };

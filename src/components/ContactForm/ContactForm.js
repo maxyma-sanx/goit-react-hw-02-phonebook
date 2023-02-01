@@ -1,4 +1,13 @@
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { AiOutlineUserAdd } from 'react-icons/ai';
+
+import {
+  Form,
+  LabelContainer,
+  Label,
+  InputContainer,
+  Input,
+  Button,
+} from './ContactForm.styled';
 
 export const ContactForm = ({ onSubmit }) => {
   const handleSubmit = e => {
@@ -12,28 +21,37 @@ export const ContactForm = ({ onSubmit }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label>
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        ></Input>
-      </Label>
+      <InputContainer>
+        <LabelContainer>
+          <Input
+            type="text"
+            id="name"
+            name="name"
+            placeholder=" "
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          ></Input>
+          <Label htmlFor="name">Name</Label>
+        </LabelContainer>
 
-      <Label>
-        Number
-        <Input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        ></Input>
-      </Label>
-      <Button>Add contact</Button>
+        <LabelContainer>
+          <Input
+            type="tel"
+            id="number"
+            name="number"
+            placeholder=" "
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          ></Input>
+          <Label>Number</Label>
+        </LabelContainer>
+      </InputContainer>
+      <Button>
+        <AiOutlineUserAdd />
+        Add contact
+      </Button>
     </Form>
   );
 };

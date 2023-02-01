@@ -9,6 +9,7 @@ import { Section } from './Section';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
+import { Social } from './Social';
 
 export class App extends Component {
   static defaultProps = {
@@ -60,12 +61,16 @@ export class App extends Component {
 
     return (
       <Layout>
-        <Section title="Phonebook">
+        <Section title="Add contact" headerContent={<Social />}>
           <ContactForm onSubmit={this.addContact} />
         </Section>
         {contacts.length > 0 && (
-          <Section title="Contacts">
-            <Filter value={filter} onChange={this.changeFilter} />
+          <Section
+            title="Contacts"
+            headerContent={
+              <Filter value={filter} onChange={this.changeFilter} />
+            }
+          >
             <ContactList
               contacts={filteredContacts}
               onRemove={this.removeContact}
